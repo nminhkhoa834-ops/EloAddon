@@ -1,0 +1,24 @@
+name: EloAddon
+version: '1.0.0'
+main: com.github.eloaddon.EloAddon
+api-version: '1.21'
+description: Dynamic ELO milestone reward system addon for HnyBPvPElo
+author: EloAddon
+
+softdepend:
+  - PlaceholderAPI
+  - LuckPerms
+
+commands:
+  eloaward:
+    description: Admin command to manage ELO reward tiers
+    usage: /eloaward <create|addperm|delperm|remove|reset|resetall|reload> [args]
+    permission: eloaddon.admin
+  thuongelo:
+    description: Open the ELO rewards GUI
+    usage: /thuongelo
+
+permissions:
+  eloaddon.admin:
+    description: Allows managing ELO milestones
+    default: op

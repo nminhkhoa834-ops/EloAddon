@@ -1,0 +1,49 @@
+id1:
+  material: WOODEN_SWORD
+  slot: 29
+  display_name: "&aTier 1"
+  lore:
+    - "&7Reach 300 ELO"
+  perm:
+    - "perm1"
+  require_elo: 300
+
+id2:
+  material: STONE_SWORD
+  slot: 30
+  display_name: "&bTier 2"
+  lore:
+    - "&7Reach 600 ELO"
+  perm:
+    - "perm2"
+  require_elo: 600
+
+id3:
+  material: IRON_SWORD
+  slot: 31
+  display_name: "&eTier 3"
+  lore:
+    - "&7Reach 900 ELO"
+  perm:
+    - "perm3"
+  require_elo: 900
+
+id4:
+  material: GOLDEN_SWORD
+  slot: 32
+  display_name: "&6Tier 4"
+  lore:
+    - "&7Reach 1200 ELO"
+  perm:
+    - "perm4"
+  require_elo: 1200
+
+id5:
+  material: DIAMOND_SWORD
+  slot: 33
+  display_name: "&bTier 5"
+  lore:
+    - "&7Reach 1500 ELO"
+  perm:
+    - "perm5"
+  require_elo: 1500

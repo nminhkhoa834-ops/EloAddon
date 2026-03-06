@@ -1,0 +1,20 @@
+gui-title: "&6ELO Reward Tiers"
+papi-elo: "%hnybpvpelo_elo%"
+cooldown-seconds: 60
+
+messages:
+  cooldown: "&cYou must wait %time%s before claiming another tier."
+  reward-success: "&aTier %id% reward claimed!"
+  already-claimed: "&cYou already claimed this tier."
+  not-enough-elo: "&cYou need more ELO."
+  tier-not-found: "&cTier not configured."
+  no-permission: "&cYou don't have permission."
+  reload-success: "&aConfig reloaded successfully."
+  reload-unsuccess: "&cConfig reloaded unsuccessfully."
+  reset-success: "&aReward reset for %player%."
+  resetall-success: "&aAll claims for tier %id% reset."
+  player-not-found: "&cPlayer not found."
+  award-created: "&aTier %id% created."
+  award-removed: "&cTier %id% removed."
+  perm-added: "&aPermission added to tier %id%."
+  perm-removed: "&cPermission removed from tier %id%."
