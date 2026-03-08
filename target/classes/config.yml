@@ -18,3 +18,4 @@ messages:
   award-removed: "&cTier %id% removed."
   perm-added: "&aPermission added to tier %id%."
   perm-removed: "&cPermission removed from tier %id%."
+debug: false

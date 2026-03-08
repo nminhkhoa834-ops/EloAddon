@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
+import com.github.eloaddon.util.SchedulerUtil;
 
 /**
  * Handles clicks in the reward GUI.
@@ -87,16 +88,18 @@ public class GUIListener implements Listener {
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), lpCommand);
         }
 
-        // Save claim (async)
-        plugin.getClaimManager().claim(player.getUniqueId(), m.getId());
+        // Save claim (async to avoid blocking)
+        SchedulerUtil.runAsync(plugin, () -> {
+            plugin.getClaimManager().claim(player.getUniqueId(), m.getId());
 
-        // Cooldown
-        cd.setCooldown(player.getUniqueId());
-
-        // Close and Animate
-        player.closeInventory();
-        RewardAnimation.play(player, m.getId());
-        player.sendMessage(msg.getMessage("reward-success").replace("%id%", String.valueOf(m.getId())));
+            // Cooldown and UI changes must run on the entity thread for safety on Folia
+            SchedulerUtil.runEntityTask(plugin, player, () -> {
+                cd.setCooldown(player.getUniqueId());
+                player.closeInventory();
+                RewardAnimation.play(player, m.getId());
+                player.sendMessage(msg.getMessage("reward-success").replace("%id%", String.valueOf(m.getId())));
+            });
+        });
     }
 
 }

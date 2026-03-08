@@ -11,3 +11,15 @@ E:\mcp\eloaddon\src\main\java\com\github\eloaddon\manager\CooldownManager.java
 E:\mcp\eloaddon\src\main\java\com\github\eloaddon\manager\MessageManager.java
 E:\mcp\eloaddon\src\main\java\com\github\eloaddon\manager\MilestoneManager.java
 E:\mcp\eloaddon\src\main\java\com\github\eloaddon\model\Milestone.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\AbstractGUI.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\CustomAnvilInput.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\DebugLogger.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\GUIButton.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\GUIManager.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\ItemBuilder.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\MainMenu.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\PendingActionManager.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\PlayerMenu.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\PMCommand.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\playercontrol\PMTabCompleter.java
+E:\mcp\eloaddon\src\main\java\com\github\eloaddon\util\SchedulerUtil.java

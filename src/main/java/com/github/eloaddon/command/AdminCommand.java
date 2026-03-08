@@ -11,6 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import java.util.UUID;
+import com.github.eloaddon.util.SchedulerUtil;
 
 /**
  * Handles the /eloaward admin command.
@@ -187,9 +188,9 @@ public class AdminCommand implements CommandExecutor {
         UUID targetUuid = target.getUniqueId();
         ClaimManager claims = plugin.getClaimManager();
 
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+        SchedulerUtil.runAsync(plugin, () -> {
             claims.resetClaim(targetUuid, id);
-            Bukkit.getScheduler().runTask(plugin, () -> sender.sendMessage(msg.getMessage("reset-success")
+            SchedulerUtil.runGlobalTask(plugin, () -> sender.sendMessage(msg.getMessage("reset-success")
                     .replace("%player%", playerName)));
         });
     }
@@ -210,9 +211,9 @@ public class AdminCommand implements CommandExecutor {
 
         ClaimManager claims = plugin.getClaimManager();
 
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+        SchedulerUtil.runAsync(plugin, () -> {
             claims.resetAllClaims(id);
-            Bukkit.getScheduler().runTask(plugin, () -> sender.sendMessage(msg.getMessage("resetall-success")
+            SchedulerUtil.runGlobalTask(plugin, () -> sender.sendMessage(msg.getMessage("resetall-success")
                     .replace("%id%", String.valueOf(id))));
         });
     }

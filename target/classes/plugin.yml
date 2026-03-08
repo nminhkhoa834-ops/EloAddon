@@ -2,6 +2,7 @@ name: EloAddon
 version: '1.0.0'
 main: com.github.eloaddon.EloAddon
 api-version: '1.21'
+folia-supported: true
 description: Dynamic ELO milestone reward system addon for HnyBPvPElo
 author: EloAddon
 
@@ -17,6 +18,10 @@ commands:
   thuongelo:
     description: Open the ELO rewards GUI
     usage: /thuongelo
+  pm:
+    description: Open the Player Manager GUI
+    usage: /pm [player]
+    permission: eloaddon.admin
 
 permissions:
   eloaddon.admin:
