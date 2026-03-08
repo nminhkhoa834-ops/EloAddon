@@ -1,10 +1,3 @@
-@REM Maven Wrapper script for Windows
-@REM Downloads Maven if not present, then delegates to it.
-@REM ----------------------------------------------------------------------------
-@REM Licensed to the Apache Software Foundation (ASF) under one
-@REM or more contributor license agreements.
-@REM ----------------------------------------------------------------------------
-
 @echo off
 setlocal
 
@@ -58,3 +51,4 @@ if not exist "%MAVEN_HOME%" (
 "%MAVEN_HOME%\bin\mvn.cmd" %*
 
 endlocal
+
