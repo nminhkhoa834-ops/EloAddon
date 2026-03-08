@@ -41,18 +41,12 @@ public class SQLiteManager {
         }
     }
 
-    // ==================== Connection Management ====================
 
-    /**
-     * Opens a new database connection.
-     */
     private void openConnection() throws SQLException {
         connection = DriverManager.getConnection(jdbcUrl);
     }
 
-    /**
-     * Returns the current connection, reconnecting if it was closed.
-     */
+
     private Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             logger.warning("Database connection was lost, reconnecting...");
@@ -62,9 +56,7 @@ public class SQLiteManager {
         return connection;
     }
 
-    /**
-     * Configures SQLite PRAGMAs for optimal performance.
-     */
+
     private void configurePragmas() throws SQLException {
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("PRAGMA journal_mode=WAL;");
@@ -74,7 +66,7 @@ public class SQLiteManager {
         }
     }
 
-    // ==================== Table Setup ====================
+
 
     private void createTables() throws SQLException {
         try (Statement stmt = getConnection().createStatement()) {
@@ -88,11 +80,6 @@ public class SQLiteManager {
         }
     }
 
-    // ==================== Health & Backup ====================
-
-    /**
-     * Logs database health information on startup.
-     */
     private void logHealthCheck() {
         logger.info("=== SQLite Database Health ===");
         logger.info("Database file: " + dbFile.getAbsolutePath());
@@ -111,12 +98,7 @@ public class SQLiteManager {
         logger.info("Database connected successfully.");
     }
 
-    /**
-     * Creates a backup of the database file if it exists.
-     * Call this before initializing the database on startup.
-     *
-     * @param dataFolder the plugin data folder
-     */
+
     public static void backupDatabase(File dataFolder, Logger logger) {
         File dbFile = new File(dataFolder, "data.db");
         if (!dbFile.exists()) {
@@ -133,7 +115,7 @@ public class SQLiteManager {
         }
     }
 
-    // ==================== Claim Operations ====================
+
 
     public void addClaim(String playerUuid, String milestoneId) {
         String sql = "INSERT OR IGNORE INTO claims (player_uuid, milestone_id) VALUES (?, ?)";
@@ -176,9 +158,7 @@ public class SQLiteManager {
         return claims;
     }
 
-    /**
-     * Deletes a specific claim for a specific player.
-     */
+
     public void resetClaim(String playerUuid, String milestoneId) {
         String sql = "DELETE FROM claims WHERE player_uuid = ? AND milestone_id = ?";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
@@ -190,9 +170,7 @@ public class SQLiteManager {
         }
     }
 
-    /**
-     * Deletes a specific tier for ALL players.
-     */
+
     public void resetAllClaims(String milestoneId) {
         String sql = "DELETE FROM claims WHERE milestone_id = ?";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
@@ -203,9 +181,7 @@ public class SQLiteManager {
         }
     }
 
-    /**
-     * Deletes all claims for a specific player.
-     */
+
     public int resetPlayerClaims(String playerUuid) {
         String sql = "DELETE FROM claims WHERE player_uuid = ?";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
@@ -217,9 +193,7 @@ public class SQLiteManager {
         return 0;
     }
 
-    /**
-     * Checks if a player has any claims at all.
-     */
+
     public boolean hasAnyClaims(String playerUuid) {
         String sql = "SELECT 1 FROM claims WHERE player_uuid = ? LIMIT 1";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
@@ -233,7 +207,7 @@ public class SQLiteManager {
         return false;
     }
 
-    // ==================== Lifecycle ====================
+
 
     public void close() {
         try {
@@ -254,3 +228,4 @@ public class SQLiteManager {
         }
     }
 }
+
