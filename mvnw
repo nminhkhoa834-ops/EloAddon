@@ -1,11 +1,3 @@
-#!/bin/sh
-# Maven Wrapper script for Unix/Linux/macOS
-# Downloads Maven if not present, then delegates to it.
-# ----------------------------------------------------------------------------
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.
-# ----------------------------------------------------------------------------
-
 set -e
 
 # Determine project base dir
@@ -60,3 +52,4 @@ fi
 
 # Execute Maven
 exec "$MAVEN_HOME/bin/mvn" "$@"
+
